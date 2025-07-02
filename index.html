@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroids</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Asteroids">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="assets/images/asteroid-large.svg">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/asteroid-large.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/asteroid-large.svg">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/images/asteroid-large.svg">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Game Canvas -->
+        <canvas id="game-canvas" width="800" height="600"></canvas>
+        
+        <!-- UI Layer -->
+        <div id="ui-layer">
+            <!-- HUD -->
+            <div id="hud">
+                <div id="score">Score: 0</div>
+                <div id="lives">Lives: 3</div>
+            </div>
+            
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen">
+                <h1>ASTEROIDS</h1>
+                <div class="subtitle">by RayCS</div>
+                <div class="version">v1.0 - Modern Remake</div>
+                <div class="controls-info">
+                    <h3>Controls:</h3>
+                    <p><strong>Desktop:</strong> Arrow Keys to move, Space to fire</p>
+                    <p><strong>Mobile:</strong> Touch controls on screen</p>
+                </div>
+                <div class="game-info">
+                    <p>Destroy asteroids and UFOs to survive!</p>
+                    <p>Large asteroids break into medium, medium into small</p>
+                    <p>Score points and earn extra lives every 10,000 points</p>
+                    <p>Classic arcade action with modern visuals & sound</p>
+                </div>
+                <button id="start-button">Start Game</button>
+            </div>
+            
+            <!-- Game Over Screen -->
+            <div id="game-over-screen" class="screen hidden">
+                <h2>Game Over</h2>
+                <div id="final-score">Final Score: 0</div>
+                <button id="play-again-button">Play Again</button>
+            </div>
+        </div>
+        
+        <!-- Touch Controls -->
+        <div id="touch-controls">
+            <button id="touch-left" class="control-btn">
+                <img src="assets/images/button-left.svg" alt="Left" width="30" height="30">
+            </button>
+            <button id="touch-right" class="control-btn">
+                <img src="assets/images/button-right.svg" alt="Right" width="30" height="30">
+            </button>
+            <button id="touch-up" class="control-btn">
+                <img src="assets/images/button-up.svg" alt="Thrust" width="30" height="30">
+            </button>
+            <button id="touch-down" class="control-btn">
+                <img src="assets/images/button-down.svg" alt="Fire" width="30" height="30">
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/lib/sat.js"></script>
+    <script src="js/audio-generator.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/entities/projectile.js"></script>
+    <script src="js/entities/ship.js"></script>
+    <script src="js/entities/asteroid.js"></script>
+    <script src="js/entities/ufo.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html> 

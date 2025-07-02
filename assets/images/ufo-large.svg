@@ -1,0 +1,41 @@
+<svg width="60" height="30" viewBox="-30 -15 60 30" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ufoLargeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7B1FA2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A148C;stop-opacity:1" />
+    </linearGradient>
+    <filter id="ufoGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- UFO body -->
+  <ellipse cx="0" cy="0" rx="25" ry="8" 
+           fill="url(#ufoLargeGradient)" 
+           stroke="#E1BEE7" 
+           stroke-width="2"
+           filter="url(#ufoGlow)"/>
+  
+  <!-- Top dome -->
+  <ellipse cx="0" cy="-5" rx="15" ry="5" 
+           fill="#E1BEE7" 
+           stroke="#9C27B0" 
+           stroke-width="1"/>
+  
+  <!-- Cockpit -->
+  <ellipse cx="0" cy="-5" rx="8" ry="3" 
+           fill="#F3E5F5" 
+           stroke="#7B1FA2" 
+           stroke-width="1"/>
+  
+  <!-- Lights -->
+  <circle cx="-15" cy="0" r="2" fill="#FFEB3B" opacity="0.8"/>
+  <circle cx="15" cy="0" r="2" fill="#FFEB3B" opacity="0.8"/>
+  <circle cx="-8" cy="0" r="1.5" fill="#4CAF50" opacity="0.7"/>
+  <circle cx="8" cy="0" r="1.5" fill="#4CAF50" opacity="0.7"/>
+</svg> 

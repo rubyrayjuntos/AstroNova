@@ -1,0 +1,1 @@
+{"name":"asteroids-game","version":"1.0.0","description":"Classic Asteroids arcade game","main":"server.js","scripts":{"start":"node server.js"},"dependencies":{"express":"^4.18.2"}}

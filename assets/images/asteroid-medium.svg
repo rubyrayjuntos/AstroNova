@@ -1,0 +1,28 @@
+<svg width="60" height="60" viewBox="-30 -30 60 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="asteroidMediumGradient" cx="30%" cy="30%">
+      <stop offset="0%" style="stop-color:#A1887F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8D6E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6D4C41;stop-opacity:1" />
+    </radialGradient>
+    <filter id="asteroidMediumGlow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Irregular asteroid shape -->
+  <path d="M-25,-15 Q-30,-8 -25,0 Q-20,8 -18,12 Q-10,15 -3,13 Q3,10 10,7 Q15,3 18,-3 Q20,-10 18,-18 Q15,-25 7,-28 Q0,-30 -7,-25 Q-15,-20 -18,-18 Q-22,-15 -25,-15 Z" 
+        fill="url(#asteroidMediumGradient)" 
+        stroke="#5D4037" 
+        stroke-width="1.5"
+        filter="url(#asteroidMediumGlow)"/>
+  
+  <!-- Surface details -->
+  <circle cx="-10" cy="-7" r="1.5" fill="#3E2723" opacity="0.6"/>
+  <circle cx="7" cy="3" r="1" fill="#3E2723" opacity="0.7"/>
+  <circle cx="3" cy="-10" r="0.8" fill="#3E2723" opacity="0.8"/>
+</svg> 
